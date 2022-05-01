@@ -3,30 +3,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Connect</title>
+    <title>Tic-Tac Connect</title>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
+    <input type="checkbox" id="navOnOffBtn"/>
     <div class="nav flexbox">
         <div id="title">
-            <h1>Tic Tac Connect</h1>
+            <h1>Tic-Tac Connect</h1>
         </div>
+        
+        <label for="navOnOffBtn" id="navOnOff">nav</label>
+
         <form class="flexbox" id="settings">
             <div class="navBtns flexbox">
                 <button class="startBtn" onclick="startGame()"> START </button>
                 <button class="resetBtn" onclick="location.reload()"> RESET </button>
             </div>
             <label> Player Names</label>
-            <input type="text" id="p1Name" name="p1Name" placeholder="Player 1" value="Player 1"/>
-            <input type="text" id="p2Name" name="p2Name" value="Player 2"/>
-        <!-- <div id="color">
-            <label>Colors</label>
-            <button id="boardColor"> Board </button>
-            <button id="p1Color">Player 1</button>
-            <button id="p2Color">Player 2</button>
-        </div> -->
+            <div class="pNamesWrapper flexbox">
+                <input type="text" id="p1Name" name="p1Name" placeholder="Player 1" value="Player 1"/>
+                <input type="text" id="p2Name" name="p2Name" value="Player 2"/>
+            </div>
             <label for="boardSize">Board & Rules</label>
             <div class="selectTagsWrapper flexbox">
                 <select id="boardSize" name="boardSize">
@@ -74,7 +74,7 @@
             </div>
         </form>            
         <div class="about">
-            <a><em>about</em></a>
+            <a href="https://github.com/S-BaC/Tic-Tac-Connect/tree/main" target="blank"><em>about</em></a>
         </div>
     </div>
     
