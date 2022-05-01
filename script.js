@@ -222,7 +222,6 @@ function compChoose(){
             maxIndex = playerSlotsHor.indexOf(rowMax);
             console.log('maxrow',maxIndex);
             for(let i = 0; i<boardSize; i++){
-                console.log(circleArr[maxIndex][i]);
                 if(circleArr[maxIndex][i] === -1){
                     filledFlag = true;
                     compPlay(maxIndex,i);
@@ -233,7 +232,6 @@ function compChoose(){
         //If columnMax is greater:
         if(filledFlag === false){
             maxIndex = playerSlotsVer.indexOf(columnMax);
-            console.log('maxcolumn',maxIndex);
             for(let i = 0; i<boardSize; i++){
                 if(circleArr[i][maxIndex] === -1){
                     filledFlag = true;
@@ -281,16 +279,17 @@ function play(row,column){
 
 //Calcultating the scores.
 function calculateScores(){
-    let score;
+    let score, candidate;
         //Checking for horizontal rows:
         for(let i = 0; i<boardSize; i++){
             score = 1;
-            let candidate = circleArr[i][0]; //j === 0 condition is already taken into account.
+           candidate = circleArr[i][0]; //j === 0 condition is already taken into account.
             for(j = 1; j<boardSize; j++){
                 if(circleArr[i][j] === candidate){
                     score++;}
-                else if(j + winningPoints <= boardSize){
-                    score=1; candidate = circleArr[i][j];}
+                // in progress: checking for the consecutiveness.
+                // else if(j + winningPoints <= boardSize){
+                //     score=1; candidate = circleArr[i][j];}
                 else{break;}
             }
             checkStatus(score,candidate);
@@ -299,18 +298,39 @@ function calculateScores(){
         //Checking for vertical rows:
         for(let i = 0; i<boardSize; i++){
             score = 1;
-            let candidate = circleArr[0][i]; //j === 0 condition is already taken into account.
+            candidate = circleArr[0][i]; //j === 0 condition is already taken into account.
             for(j = 1; j<boardSize; j++){
                 if(circleArr[j][i] === candidate){
                     score++;}
-                else if(j + winningPoints <= boardSize){
-                    score=1; candidate = circleArr[j][i];}
                 else{break;}
             }
             checkStatus(score,candidate);
             if(!game) return;
             }
-}
+        //Checking for diagonals:
+            score = 1;
+            candidate = circleArr[0][0]; //Since boardSize === winningPoints, only two diagonals need to be checked.
+            for(j = 1; j<boardSize; j++){
+                if(circleArr[j][j] === candidate){
+                    score++;}
+                else{break;}
+            }
+            checkStatus(score,candidate);
+            if(!game) {return;}
+            else{
+                let rightmostIndex = boardSize -1;
+                score = 1;
+                candidate = circleArr[0][rightmostIndex];
+                for(j = 1; j<boardSize; j++){
+                        if(circleArr[j][rightmostIndex-j] === candidate){
+                            score++;}
+                        else{break;}
+                    }
+                console.log('score is now ', score);
+                checkStatus(score,candidate);
+            }
+    }
+        
 
 //Sees if someone wins.
 function checkStatus(score, candidate){
@@ -349,6 +369,6 @@ function draw(){
 /*------------------------------------------------------------------------------------------------
 Ideas for expansion:
 //  Figure out how to make section 3 consise.
-//  Modify to allow Diagonal Conditions.
-//  Option to customize colors.
+//  Modify to make Marc (normal Computer mode) smarter about diagonals.
+//  Add option to customize colors.
 ----------------------------------------------------------------------------------------------------*/
