@@ -1,5 +1,9 @@
-arr = [1,1,3,2,2,4,3,5,6];
+function factoryFunc(){
+   return{
+      property : "cool property",
+      win : function(candidate){console.log(`${candidate} you win.`);},
+      lose : function(){console.log("your opponent lost");}
+   }
+}
 
-arr.forEach(element => {
-   console.log(element); 
-});
+factoryFunc().win('Hello');

@@ -6,7 +6,6 @@
 |           4.  GAME-ENDING             |
 ---------------------------------------*/
 
-
 /*  1.  SETTING UP VARIABLES */
 
 /* 1.1. The Document Object */
