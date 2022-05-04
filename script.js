@@ -354,6 +354,7 @@ function win(winnerIndex){
     welcomeScr.style.color='white';
     document.getElementsByClassName('turn')[0].style.backgroundColor = dotColors[winnerIndex];
     document.getElementsByClassName('credit')[0].style.display = 'block';
+    document.getElementById('navOnOffBtn').checked = true;
 }
 function draw(){    
     turns.style.display = 'none';
@@ -362,6 +363,7 @@ function draw(){
     welcomeScr.style.display = 'block';
     welcomeScr.style.color='var(--color7)';
     document.getElementsByClassName('turn')[0].style.backgroundColor = '#eee';
+    document.getElementById('navOnOffBtn').checked = true;
 }
 /*-----------------------------------------------------------------------------------------------*/
 

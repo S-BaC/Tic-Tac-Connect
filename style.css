@@ -116,6 +116,7 @@ body {
 /* Board */
 .boardWrapper {
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 3vh;
 }
@@ -175,6 +176,7 @@ body {
     font-size: 2rem;
   }
 }
+
 /* For vw < 1000px, nav bar goes to top: */
 @media screen and (max-width:1000px) {
   body{
@@ -243,5 +245,35 @@ body {
   }
   .credit {
     bottom:20vh;
+  }
+  .turn{
+    width:60vw;
+  }
+}
+
+@media screen and (max-width:500px) {
+  #settings{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2vh;
+  }
+  #title{
+    width: 75vw;
+    font-size: 18px;
+  }
+  .about{
+    right:10vw;
+  }
+  #navOnOff{margin-top: 1vh;}
+  #navOnOffBtn:checked ~ .nav{
+    height: 25vh;
+  }
+
+  .credit{
+    width:50vw;
+    bottom:30vh;
+    font-size: 10px;
   }
 }
