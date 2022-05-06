@@ -265,12 +265,12 @@ function play(row,column){
     circleArr[row][column] = turn;
         filledSlots ++;
         //Checking if anybody wins, or if it's a draw:
-        if(filledSlots === boardSize**2){
-            draw();
-        }
-        else if(filledSlots >= (2*winningPoints-1)){
+        if(filledSlots >= (2*winningPoints-1)){
             calculateScores();
+            if(game && filledSlots === boardSize**2){
+                draw();
             }
+        }
         turn = 1 - turn; //Toggling player numbers.
         playerTurn.textContent = players[turn];
         playerTurn.style.color = dotColors[turn];
@@ -325,7 +325,6 @@ function calculateScores(){
                             score++;}
                         else{break;}
                     }
-                console.log('score is now ', score);
                 checkStatus(score,candidate);
             }
     }
