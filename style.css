@@ -27,7 +27,7 @@ body {
   flex-direction: column;
   background-color: var(--color5);
   padding: 0 3vh;
-  font-size: 1.5rem;
+  font-size: 1rem;
   justify-content: flex-start;
 }
 #settings {
@@ -37,6 +37,9 @@ body {
 #title {
   padding: 1vh 0;
   text-decoration: underline;
+}
+label{
+  font-size: max(1.5vw, 25px);
 }
 #settings > label {
   margin-top: 2vh;
@@ -224,7 +227,7 @@ body {
   }
   .about{
     position: absolute;
-    right:5vw; top:3vh;
+    right:8vw; top:3vh;
   }
   #navOnOff{
     display:block;
